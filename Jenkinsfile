@@ -22,11 +22,14 @@ pipeline {
 				bat "mvn test"
 			}
 		}
+		
+		stage('Docker Build') {
+		      agent any
+		      steps {
+		        sh 'docker build -t spring-boot-pipeline .'
+         }
+    }
 
-		stage('Deploy') {
-			steps {
-			    bat "mvn spring-boot:run"
-			}
-		}
+		
 	}
 }
