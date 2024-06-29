@@ -37,6 +37,7 @@ pipeline {
 	          bat 'docker push spring-boot-pipeline'
 	        }
       }
+    }
 
 		
 	}
