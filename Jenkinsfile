@@ -25,7 +25,7 @@ pipeline {
 		
 		stage('Docker Build') {
 		      steps {
-		        bat 'docker build -t spring-boot-pipeline .'
+		        bat 'docker build -t kltdocker24/spring-boot-pipeline .'
          }
       }
       
@@ -34,7 +34,7 @@ pipeline {
 	      steps {
 	        withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
 	          bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-	          bat 'docker push spring-boot-pipeline'
+	          bat 'docker push kltdocker24/spring-boot-pipeline'
 	        }
       }
     }
