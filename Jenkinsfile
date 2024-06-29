@@ -24,7 +24,6 @@ pipeline {
 		}
 		
 		stage('Docker Build') {
-		      agent any
 		      steps {
 		        bat 'docker build -t spring-boot-pipeline .'
          }
